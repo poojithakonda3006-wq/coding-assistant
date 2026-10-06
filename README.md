@@ -1,5 +1,7 @@
 # AI Coding Assistant
 
+[![Deploy public UI preview](https://github.com/poojithakonda3006-wq/coding-assistant/actions/workflows/pages.yml/badge.svg)](https://github.com/poojithakonda3006-wq/coding-assistant/actions/workflows/pages.yml)
+
 An educational coding workspace for analyzing, debugging, and running code in
 an isolated sandbox. Supported languages are Python, JavaScript, TypeScript,
 Java, C, and C++.
