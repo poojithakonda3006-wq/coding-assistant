@@ -10,7 +10,7 @@ $logDirectory = Join-Path $env:LOCALAPPDATA "AICodingAssistant\logs"
 if (-not (Test-Path $python)) {
     throw "Backend Python environment is missing. Create backend\venv and install backend requirements first."
 }
-if (-not (Test-Path (Join-Path $frontendDirectory ".next"))) {
+if (-not (Test-Path (Join-Path $frontendDirectory ".next-local"))) {
     throw "Frontend production build is missing. Run npm run build in the frontend folder first."
 }
 

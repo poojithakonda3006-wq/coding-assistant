@@ -4,6 +4,16 @@ An educational coding workspace for analyzing, debugging, and running code in
 an isolated sandbox. Supported languages are Python, JavaScript, TypeScript,
 Java, C, and C++.
 
+## Public project preview
+
+The public interface preview will be available at
+**[https://poojithakonda3006-wq.github.io/coding-assistant/](https://poojithakonda3006-wq.github.io/coding-assistant/)**.
+GitHub Actions deploys it from `main` after GitHub Pages is enabled for this
+repository. If the first deployment asks for Pages configuration, open the
+repository's **Settings → Pages** and set the build source to **GitHub Actions**.
+The public static preview lets visitors explore the interface, but does not
+connect to a backend or execute code.
+
 ## Review locally
 
 **[Open the app at http://localhost:3001](http://localhost:3001)**

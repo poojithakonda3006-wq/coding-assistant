@@ -53,6 +53,27 @@ type ExecutionResult = {
 };
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+const PUBLIC_DEMO = process.env.NEXT_PUBLIC_DEMO_MODE === "true";
+const PUBLIC_DEMO_STATUS: LanguageStatus = {
+  runner: {
+    available: false,
+    image_available: false,
+    message: "Public UI preview only. Run the project locally to use analysis and execution.",
+  },
+  languages: [
+    ["python", "Python"],
+    ["javascript", "JavaScript"],
+    ["typescript", "TypeScript"],
+    ["java", "Java"],
+    ["c", "C"],
+    ["cpp", "C++"],
+  ].map(([id, name]) => ({
+    id,
+    name,
+    analysis_available: false,
+    execution_available: false,
+  })),
+};
 
 async function postJson<T>(
   path: string,
@@ -60,6 +81,9 @@ async function postJson<T>(
   language: string,
   extra: Record<string, string | number> = {},
 ): Promise<T> {
+  if (PUBLIC_DEMO) {
+    throw new Error("Analysis and execution are available in the local version of this project.");
+  }
   const response = await fetch(`${API_URL}${path}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -92,12 +116,15 @@ export default function Home() {
   } | null>(null);
   const [stdin, setStdin] = useState("");
   const [execution, setExecution] = useState<ExecutionResult | null>(null);
-  const [languageStatus, setLanguageStatus] = useState<LanguageStatus | null>(null);
+  const [languageStatus, setLanguageStatus] = useState<LanguageStatus | null>(
+    PUBLIC_DEMO ? PUBLIC_DEMO_STATUS : null,
+  );
   const selectedLanguage = languageStatus?.languages.find((item) => item.id === language);
   const analysisAvailable = selectedLanguage?.analysis_available ?? false;
   const executionAvailable = selectedLanguage?.execution_available ?? false;
 
   const refreshLanguageStatus = useCallback(async () => {
+    if (PUBLIC_DEMO) return;
     const response = await fetch(`${API_URL}/api/v1/languages`);
     const data = await response.json();
     if (!response.ok) {
@@ -107,6 +134,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    if (PUBLIC_DEMO) return;
     const controller = new AbortController();
     void fetch(`${API_URL}/api/v1/languages`, { signal: controller.signal })
       .then(async (response) => {
@@ -250,7 +278,9 @@ export default function Home() {
               ["cpp", "C++"],
             ].map(([id, name]) => {
               const availability = languageStatus?.languages.find((item) => item.id === id);
-              const label = availability?.analysis_available
+              const label = PUBLIC_DEMO
+                ? "UI preview"
+                : availability?.analysis_available
                 ? availability.execution_available ? "analysis & execution available" : "analysis available · runner setup needed"
                 : languageStatus ? "runner setup needed" : "checking runner...";
               return <option key={id} value={id}>{name} — {label}</option>;
@@ -259,23 +289,42 @@ export default function Home() {
           <p className="mt-2 text-xs text-slate-300">
             {languageStatus?.runner.message ?? "Checking isolated runner availability..."}
           </p>
-          <button
-            type="button"
-            disabled={busyAction !== ""}
-            onClick={() => void runAction("status", refreshLanguageStatus)}
-            className="mt-2 text-sm font-medium text-cyan-200 underline decoration-cyan-400/60 underline-offset-4 hover:text-white disabled:opacity-50"
-          >
-            Refresh runner status
-          </button>
+          {!PUBLIC_DEMO && (
+            <button
+              type="button"
+              disabled={busyAction !== ""}
+              onClick={() => void runAction("status", refreshLanguageStatus)}
+              className="mt-2 text-sm font-medium text-cyan-200 underline decoration-cyan-400/60 underline-offset-4 hover:text-white disabled:opacity-50"
+            >
+              Refresh runner status
+            </button>
+          )}
         </div>
       </header>
+
+      {PUBLIC_DEMO && (
+        <aside className="mb-8 rounded-2xl border border-cyan-200/30 bg-slate-950/50 p-4 text-sm text-slate-100 backdrop-blur">
+          <strong className="text-cyan-200">Public UI preview:</strong>{" "}
+          You can explore the interface and sample code, but analysis and execution are disabled here.
+          To use the coding tools, run this project locally from the{" "}
+          <a
+            className="font-semibold text-cyan-200 underline underline-offset-2 hover:text-white"
+            href="https://github.com/poojithakonda3006-wq/coding-assistant"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub repository
+          </a>
+          .
+        </aside>
+      )}
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <section className="rounded-3xl border border-white/60 bg-white/95 p-6 shadow-2xl shadow-slate-950/15 backdrop-blur sm:p-8">
           <div className="mb-4 flex items-center justify-between gap-3">
             <h2 className="text-xl font-semibold text-gray-800">Code Workspace</h2>
             <span className={`rounded-full px-3 py-1 text-xs font-bold ${analysisAvailable ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-900"}`}>
-              {analysisAvailable ? "ANALYSIS READY" : "RUNNER REQUIRED"}
+              {PUBLIC_DEMO ? "PUBLIC UI PREVIEW" : analysisAvailable ? "ANALYSIS READY" : "RUNNER REQUIRED"}
             </span>
           </div>
           <textarea
@@ -296,9 +345,9 @@ export default function Home() {
             disabled={busyAction !== "" || !analysisAvailable}
             className="mt-4 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-900/20 transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {!analysisAvailable ? "Runner setup required" : busyAction === "analyze" ? "Analyzing..." : "Analyze Code"}
+            {PUBLIC_DEMO ? "Analysis runs locally" : !analysisAvailable ? "Runner setup required" : busyAction === "analyze" ? "Analyzing..." : "Analyze Code"}
           </button>
-          {!analysisAvailable && (
+          {!analysisAvailable && !PUBLIC_DEMO && (
             <p className="mt-3 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">
               {languageStatus?.runner.message ?? "Waiting for the isolated runner status."} Build and start the isolated runner to enable analysis and execution for this language.
             </p>
@@ -319,7 +368,7 @@ export default function Home() {
               disabled={busyAction !== "" || !executionAvailable}
               className="mt-3 rounded-xl bg-emerald-700 px-6 py-3 font-semibold text-white shadow-lg transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {!executionAvailable ? "Execution runner required" : busyAction === "execute" ? "Running in sandbox..." : "Run & Debug Code"}
+              {PUBLIC_DEMO ? "Execution runs locally" : !executionAvailable ? "Execution runner required" : busyAction === "execute" ? "Running in sandbox..." : "Run & Debug Code"}
             </button>
           </div>
           {error && (
