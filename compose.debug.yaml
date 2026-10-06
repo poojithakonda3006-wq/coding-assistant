@@ -1,0 +1,6 @@
+services:
+  aicodingassistant:
+    image: aicodingassistant
+    build:
+      context: .
+      dockerfile: ./Dockerfile

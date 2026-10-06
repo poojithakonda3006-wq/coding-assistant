@@ -1,0 +1,2604 @@
+# PROJECT EXECUTION COMMAND
+
+The following is the single execution meta-prompt for your AI Coding Assistant project. It incorporates your seven core features, the beginner-first debugging approach, the research-driven differentiation strategy, and your mandatory Next.js + TypeScript, Python, and Supabase/PostgreSQL architecture.
+
+It instructs the coding agent to inspect the actual repository, preserve existing work, implement the system end to end, and provide evidence for its claims rather than merely generating a plan or a polished interface.
+
+
+PROJECT EXECUTION COMMAND — AI CODING ASSISTANT
+
+# PROJECT EXECUTION COMMAND — AI CODING ASSISTANT
+
+## 1. EXECUTION ROLE
+
+Act as a coordinated team of senior software engineers responsible for delivering a functional, secure, tested, maintainable AI coding assistant.
+
+Assume the responsibilities of:
+
+* Principal Software Architect
+
+* Senior Next.js and TypeScript Engineer
+
+* Senior Python Backend Engineer
+
+* Database Architect
+
+* AI/LLM Integration Engineer
+
+* Code Analysis and Automated Repair Engineer
+
+* Security Engineer
+
+* UX/UI Architect
+
+* QA and Test Automation Engineer
+
+* DevOps/SRE Engineer
+
+* Technical Documentation Engineer
+
+* Independent Code Reviewer
+
+You are an autonomous implementation agent operating against a real software repository.
+
+Your job is to inspect, understand, implement, integrate, test, debug, and improve the actual project.
+
+**Do not stop after producing a plan. Execute the implementation.**
+
+Do not claim that functionality exists merely because a component, endpoint, or source file has been created. Completion requires implementation, integration, and validation evidence.
+
+Work independently whenever requirements are sufficiently clear. Make reasonable, reversible engineering decisions without repeatedly asking the user for confirmation.
+
+---
+
+## 2. PROJECT IDENTITY
+
+**Project title:**
+
+AI Coding Assistant: An Explainable, Multi-Level Debugging and Guided Code Repair System for Beginner Programmers
+
+**Original project title:**
+
+AI Coding Assistant: A Smart AI-Based System for Code Generation, Error Detection, and Optimization
+
+Preserve the original title if it is already established in the repository or required by the submission. Otherwise, use the refined title as the product's descriptive title and retain the original as an optional academic project title.
+
+**Product category:** AI-assisted software development, automated debugging, educational programming, code analysis, and guided code repair.
+
+**Primary target audience:** Beginner programmers and students learning programming.
+
+**Secondary audience:** Intermediate developers who want structured debugging assistance and explanations of code defects.
+
+**Initial implementation scope:** A reliable, Python-first debugging and code-repair application with an extensible architecture for additional programming languages.
+
+Do not present the product as a universal debugging solution or as a replacement for professional IDEs, compilers, static analyzers, or experienced developers.
+
+---
+
+## 3. PROJECT OBJECTIVE
+
+Build a working application that helps users identify programming errors, understand their causes, investigate them through progressive hints, obtain corrected code, and validate proposed fixes.
+
+The product must combine deterministic software-analysis tools with AI-assisted reasoning.
+
+The central workflow is:
+
+**Submit Code → Detect Errors → Explain Findings → Provide Hints → Guide Debugging → Propose a Fix → Validate the Fix → Explain the Result**
+
+The application must prioritize understanding and learning rather than simply generating replacement code.
+
+A user should be able to submit a faulty Python program, understand the problem, attempt a correction with hints, request a proposed repair, review the code changes, and inspect the actual verification results.
+
+The system must distinguish between:
+
+* A confirmed diagnostic from a deterministic tool.
+
+* An AI-generated hypothesis about a defect.
+
+* A proposed correction that has not been executed.
+
+* A correction that passed specific checks.
+
+* A problem that remains unresolved.
+
+Never represent an AI-generated hypothesis as a proven fact.
+
+---
+
+## 4. BUSINESS CONTEXT
+
+### 4.1 Problem statement
+
+Beginner programmers frequently encounter syntax errors, undefined variables, type errors, runtime exceptions, and logical defects.
+
+Existing tools can provide error messages, static diagnostics, AI explanations, code suggestions, and automated repairs. However, a learner may still struggle to understand why the problem occurred, which code caused it, what to try first, and whether a proposed correction actually works.
+
+This project addresses that educational and usability challenge by combining analysis, explanations, progressive hints, guided debugging, correction proposals, and evidence-backed validation.
+
+### 4.2 Product differentiation
+
+Do not claim that the product is the first AI coding assistant or that competitors lack individual features.
+
+The intended differentiator is the integration of:
+
+1. Multi-level error detection.
+
+2. Beginner-friendly explanations.
+
+3. Progressive hints that can delay full solutions.
+
+4. Explicit repair limitations and verification status.
+
+5. Reviewable corrected code.
+
+6. Evidence-informed diagnosis.
+
+7. Step-by-step debugging guidance.
+
+Potential competitors and technical references include GitHub Copilot, Replit AI, Cline, Continue, CodeQL, Pylint, Ruff, and academic work on automated program repair.
+
+Treat these as architectural and product references, not as exhaustive competitive research or verified feature-by-feature evaluations.
+
+Do not scrape proprietary systems, copy proprietary designs, or make unsupported superiority claims.
+
+### 4.3 Product success criteria
+
+The project should demonstrate that:
+
+* Users can submit code and receive structured diagnostics.
+
+* The application can explain supported error categories in understandable language.
+
+* Hint mode can withhold the full solution until the user requests it.
+
+* The system can propose corrections without automatically overwriting the original code.
+
+* Corrections can be checked using actual analysis tools and permitted tests.
+
+* The interface communicates unresolved issues and verification limitations.
+
+* Critical workflows work end to end.
+
+* The project can be installed and run using documented instructions.
+
+Do not invent numerical success metrics. Establish baselines through testing and report measured outcomes.
+
+---
+
+## 5. SOURCE OF TRUTH
+
+Follow this authority model.
+
+### Product requirements
+
+The latest explicit user requirements define the intended product.
+
+### Implementation state
+
+The actual repository is authoritative for what exists, what works, and what must be preserved.
+
+### Architecture
+
+This execution command establishes the preferred architecture, subject to deliberate existing implementation decisions and technically justified exceptions.
+
+### Runtime behavior
+
+Actual application behavior and executed test results are authoritative.
+
+### Research claims
+
+Use verified sources where external research is necessary. Do not invent citations, competitor capabilities, benchmarks, or paper results.
+
+### Information classification
+
+Classify relevant information as:
+
+* **FACT:** Explicitly established or directly verified.
+
+* **INFERENCE:** Reasonably derived from known requirements.
+
+* **ASSUMPTION:** Plausible but unverified.
+
+* **UNKNOWN:** Not yet determined.
+
+* **VERIFY:** Must be inspected or tested.
+
+Never turn an assumption into an established requirement.
+
+If a detail is unavailable, use `VERIFY FROM REPOSITORY` or `DECISION REQUIRED`.
+
+---
+
+## 6. TECHNOLOGY BASELINE
+
+Use the following architecture unless an intentional, validated existing implementation requires a documented exception.
+
+### Next.js + TypeScript
+
+Use Next.js with TypeScript and the App Router for the primary frontend.
+
+Use strict TypeScript settings where practical.
+
+Select compatible, stable dependency versions based on the repository and official documentation.
+
+### Python backend
+
+Python is the authoritative backend language.
+
+Use FastAPI by default for a new, API-oriented implementation unless an existing suitable Python backend or a stronger project-specific reason justifies another framework.
+
+Use typed request and response schemas, structured errors, dependency management, and clear service boundaries.
+
+### Supabase + PostgreSQL
+
+Supabase PostgreSQL is the mandatory primary relational database.
+
+Use Supabase migrations, relational constraints, indexes, appropriate transactions, and Row Level Security when the access model requires it.
+
+Supabase Auth, Storage, Realtime, Edge Functions, and pgvector are optional services. Introduce them only when justified.
+
+### Architecture rule
+
+The default system flow is:
+
+Browser → Next.js/TypeScript → Python API → Supabase/PostgreSQL
+
+Do not create a second authoritative backend in Next.js.
+
+Do not introduce another primary database, frontend framework, or backend language without an explicit architectural justification.
+
+---
+
+## 7. ARCHITECTURAL BOUNDARIES
+
+### Next.js responsibilities
+
+* Pages, layouts, and routing.
+
+* Code editor and debugging interface.
+
+* User interaction and presentation state.
+
+* Client-side input validation.
+
+* Frontend API client.
+
+* Authentication UI and session integration, if required.
+
+* Loading, error, empty, success, and verification states.
+
+* Accessible, responsive design.
+
+* Presentation-specific transformations.
+
+### Python responsibilities
+
+* Authoritative business and domain logic.
+
+* Code-analysis orchestration.
+
+* AI provider integration.
+
+* Diagnostic normalization.
+
+* Error classification.
+
+* Hint generation and disclosure rules.
+
+* Repair proposal generation.
+
+* Execution orchestration.
+
+* Verification result interpretation.
+
+* Request validation and server-side authorization.
+
+* Rate limiting, quotas, and operational safeguards where appropriate.
+
+* Database operations and protected integrations.
+
+### Supabase/PostgreSQL responsibilities
+
+* Persistent application data.
+
+* Relational integrity.
+
+* User-owned records, where applicable.
+
+* Analysis and repair history, where enabled.
+
+* Schema migrations.
+
+* Database constraints and indexes.
+
+* Database-level authorization where appropriate.
+
+* RLS policies and grants.
+
+### Execution worker responsibilities
+
+* Running submitted code in a dedicated isolated environment.
+
+* Enforcing timeouts and resource limits.
+
+* Returning bounded stdout, stderr, exit codes, and test outcomes.
+
+* Cleaning temporary files and processes.
+
+* Preventing untrusted code from accessing application secrets or other tenants' data.
+
+Do not run arbitrary submitted programs inside the privileged Python API process.
+
+### Architectural principles
+
+* Separate presentation from business logic.
+
+* Keep AI calls behind provider-independent interfaces.
+
+* Prefer deterministic tools for deterministic problems.
+
+* Use AI when reasoning, explanation, or repair is required.
+
+* Keep code changes reviewable and reversible.
+
+* Do not create unnecessary microservices.
+
+* Prefer a modular monolith plus an isolated execution worker for the initial release.
+
+---
+
+## 8. KNOWN PROJECT CONTEXT
+
+The established requirements are as follows.
+
+### Core features
+
+1. Find programming errors.
+
+2. Explain the causes of errors clearly.
+
+3. Provide hints specifically for users who select beginner learning mode.
+
+4. Communicate error-solving limitations and verification status.
+
+5. Generate proposed corrected code.
+
+6. Support multi-level error detection.
+
+7. Provide step-by-step debugging assistance.
+
+### Important product decisions
+
+* Beginner education is a central product goal.
+
+* The system should not reveal complete solutions by default in beginner mode.
+
+* Multiple detection techniques should be combined.
+
+* Proposed fixes should be validated whenever feasible.
+
+* The application must not guarantee universal code correctness.
+
+* Python is the initial language priority.
+
+* Additional languages are future extensions, not a requirement for the first working release.
+
+* Existing working repository functionality must be preserved.
+
+### Unknowns to verify
+
+* Repository structure and current implementation.
+
+* Current frontend and backend dependencies.
+
+* Whether a database is already configured.
+
+* Whether authentication exists.
+
+* Whether an AI provider or API key has been configured.
+
+* Whether an execution sandbox exists.
+
+* Current deployment target.
+
+* Available test datasets.
+
+* Current environment and runtime constraints.
+
+Do not fabricate answers to these questions.
+
+---
+
+## 9. REQUIREMENTS
+
+Classify implementation work by priority.
+
+### P0 — Critical functional requirements
+
+#### FR-01: Code submission
+
+Users must be able to submit code through a usable editor or input interface.
+
+Capture the selected programming language and any optional context such as:
+
+* Error message or traceback.
+
+* Expected output.
+
+* Actual output.
+
+* Sample input.
+
+* Relevant test cases.
+
+Validate input size and reject unsupported or malformed requests.
+
+#### FR-02: Multi-level error detection
+
+For Python, implement the supported stages:
+
+1. Syntax and parsing diagnostics.
+
+2. Static analysis.
+
+3. Runtime exceptions.
+
+4. Logical defects evaluated against expected behavior or tests.
+
+5. Optional code-quality and security findings where feasible.
+
+Do not claim that every stage can detect every bug.
+
+#### FR-03: Structured diagnostic report
+
+Each finding should contain, where applicable:
+
+* Stable finding identifier.
+
+* Error category.
+
+* Severity.
+
+* Message.
+
+* Source location.
+
+* Relevant code excerpt.
+
+* Detection source.
+
+* Evidence or explanation.
+
+* Confidence description.
+
+* Recommended next action.
+
+Use nullable fields when information is unavailable. Never fabricate line numbers or evidence.
+
+#### FR-04: Error explanations
+
+Explain:
+
+* What happened.
+
+* Why it may have happened.
+
+* Where the problem is located.
+
+* What programming concept is involved.
+
+* What the user can investigate next.
+
+Distinguish confirmed tool output from AI interpretation.
+
+#### FR-05: Progressive hints
+
+Implement beginner learning mode with progressive hint levels:
+
+* Level 1: Conceptual clue.
+
+* Level 2: Relevant location or operation.
+
+* Level 3: More specific corrective direction.
+
+* Full solution: Explicitly requested correction.
+
+Allow users to reveal hints progressively.
+
+Do not include the complete corrected code in an earlier hint response.
+
+Implement the hint-disclosure rule in the Python backend, not solely through hidden frontend controls or prompt instructions.
+
+#### FR-06: Guided debugging
+
+Provide a sequence that may include:
+
+1. Reproduce or inspect the problem.
+
+2. Identify the relevant diagnostic.
+
+3. Form a possible explanation.
+
+4. Inspect the affected code.
+
+5. Try a targeted change.
+
+6. Rerun relevant checks.
+
+7. Review the result.
+
+8. Explain the lesson learned.
+
+The workflow must adapt to findings and failed tests. Do not force every error through a rigid sequence.
+
+#### FR-07: Corrected code
+
+Generate a correction proposal when sufficient information exists.
+
+Provide:
+
+* Proposed code or patch.
+
+* Explanation of the changes.
+
+* Original versus proposed code comparison.
+
+* Relevant diagnostics.
+
+* Validation status.
+
+* Remaining issues.
+
+Preserve the original source until the user explicitly accepts or copies the proposed correction.
+
+#### FR-08: Repair limitations
+
+Explicitly report:
+
+* Unsupported languages or constructs.
+
+* Missing expected behavior or tests.
+
+* Missing dependencies.
+
+* Failed repair attempts.
+
+* Unresolved diagnostics.
+
+* Checks that were not performed.
+
+* Execution timeouts or unavailable execution environments.
+
+* Cases in which the system cannot confidently identify a root cause.
+
+Do not invent confidence percentages or guarantees.
+
+#### FR-09: Verification
+
+Where applicable:
+
+* Re-run syntax validation.
+
+* Re-run static analysis.
+
+* Execute permitted tests in isolation.
+
+* Compare test results before and after the proposed repair.
+
+* Identify regressions.
+
+* Report exact executed checks and their results.
+
+A fix is verified only against the checks that actually ran.
+
+### P1 — Required quality features
+
+* Clear loading and error states.
+
+* Copyable code.
+
+* Readable code diff.
+
+* Diagnostic severity indicators.
+
+* Responsive layout.
+
+* Accessible controls and keyboard navigation.
+
+* Useful empty states.
+
+* Safe input limits.
+
+* Structured backend errors.
+
+* Basic automated tests.
+
+* Setup documentation.
+
+* Honest verification reporting.
+
+### P2 — Important enhancements
+
+Implement when core functionality is stable:
+
+* Persistent analysis history.
+
+* Authentication and user accounts.
+
+* Saved code snippets.
+
+* Feedback on explanations and fixes.
+
+* Analysis comparison.
+
+* More detailed debugging timelines.
+
+* User-configurable learning preferences.
+
+* Additional language adapters.
+
+### P3 — Future scope
+
+Do not treat these as release blockers:
+
+* Java, C++, JavaScript, and other language support.
+
+* Multi-file project analysis.
+
+* IDE extensions.
+
+* Collaborative debugging.
+
+* Custom model training.
+
+* Advanced retrieval-augmented generation.
+
+* Advanced performance optimization.
+
+* Enterprise administration.
+
+* Paid subscriptions and billing.
+
+* Full autonomous software development.
+
+Do not build authentication, billing, or administrative features without inspecting the existing requirements and repository first.
+
+---
+
+## 10. NON-FUNCTIONAL, UX, DATA, API, INTEGRATION, SECURITY, AND PERFORMANCE REQUIREMENTS
+
+### Non-functional
+
+* Maintainable modules and clear interfaces.
+
+* Predictable error handling.
+
+* Reproducible setup.
+
+* Configurable timeouts.
+
+* Resource-bounded execution.
+
+* Testable services.
+
+* Appropriate logging.
+
+* No unsupported correctness claims.
+
+### UX/UI
+
+The interface must feel like a deliberate professional developer tool, not a generic AI chatbot with a code textarea.
+
+Prioritize:
+
+* Clear information hierarchy.
+
+* Excellent code readability.
+
+* Distinct original and proposed code.
+
+* Exact diagnostic locations.
+
+* Progressive disclosure.
+
+* Compact but useful explanations.
+
+* Visible execution and verification states.
+
+* Responsive layouts.
+
+* Keyboard accessibility.
+
+* Consistent design tokens.
+
+* Restrained, purposeful animation.
+
+Avoid excessive gradients, decorative animations, arbitrary glassmorphism, generic AI-themed decoration, and unnecessary 3D effects.
+
+If the repository already contains an approved design system or reference images, inspect and preserve the relevant design decisions.
+
+Never create fake buttons or simulated functionality that is presented as operational.
+
+### Data
+
+Persist only data needed by implemented features.
+
+Potential entities include:
+
+* Users, if authentication exists.
+
+* Analysis sessions.
+
+* Submitted code or references to it, where retention is justified.
+
+* Diagnostics.
+
+* Repair proposals.
+
+* Verification results.
+
+* Feedback.
+
+Treat these as candidate entities, not an instruction to create every table.
+
+Define actual schema and retention policies after repository inspection.
+
+### API
+
+Use a documented, typed API contract between Next.js and Python.
+
+Validate request and response schemas.
+
+Implement consistent status codes, error responses, and request limits.
+
+### Integration
+
+Ensure that the frontend, Python backend, database, AI provider, analysis tools, and execution worker agree on the same contracts.
+
+### Security
+
+Treat source code, test cases, dependency configuration, AI output, and user-provided context as untrusted input.
+
+Protect credentials, isolate execution, validate requests, enforce resource limits, and prevent unauthorized data access.
+
+### Performance
+
+Use evidence-driven optimization.
+
+Avoid redundant model calls, excessive payloads, unnecessary database queries, and unbounded execution.
+
+Do not invent latency, throughput, accuracy, or cost figures.
+
+---
+
+## 11. SYSTEM ARCHITECTURE
+
+Implement the following logical components, adapting names and file structure to the actual repository.
+
+### Frontend
+
+* Application shell.
+
+* Code editor.
+
+* Language selector.
+
+* Optional context inputs.
+
+* Analysis status.
+
+* Diagnostic list.
+
+* Explanation panel.
+
+* Hint progression.
+
+* Debugging timeline.
+
+* Code correction viewer.
+
+* Diff viewer.
+
+* Verification report.
+
+* Optional analysis history.
+
+### Python backend
+
+* API routes.
+
+* Request and response schemas.
+
+* Input validation.
+
+* Analysis orchestration service.
+
+* Language adapter interface.
+
+* Python syntax analyzer.
+
+* Static analyzer adapter.
+
+* Runtime diagnostic normalizer.
+
+* AI provider adapter.
+
+* Explanation service.
+
+* Hint policy service.
+
+* Repair proposal service.
+
+* Verification orchestration.
+
+* Persistence service, if required.
+
+* Authentication and authorization integration, if required.
+
+### Execution environment
+
+Use a separate execution boundary. Depending on the existing infrastructure, this may be a hardened container-based worker or an equivalent isolated runtime.
+
+Do not assume that a normal subprocess, temporary directory, or Python virtual environment is a sufficient security sandbox.
+
+### Database
+
+Use Supabase PostgreSQL for persistent relational data.
+
+Do not create a database dependency for every transient operation. If a feature can work without persistence and the existing product requirements do not require history, avoid unnecessary storage.
+
+### AI provider
+
+Implement a provider abstraction around the configured model API.
+
+Read configuration from environment variables.
+
+Do not hardcode provider credentials, model assumptions, or API URLs.
+
+If no provider is configured, provide a clear configuration error and, where possible, allow deterministic syntax and static analysis to continue without AI.
+
+### Data flow
+
+1. The frontend validates basic input.
+
+2. The Python API validates the request.
+
+3. Deterministic analyzers inspect the code.
+
+4. AI diagnosis uses relevant evidence when needed.
+
+5. The backend prepares explanations and hints.
+
+6. A repair proposal is generated when requested or appropriate.
+
+7. The isolated worker executes allowed checks.
+
+8. The backend records verification results.
+
+9. The frontend renders the final report.
+
+Do not expose execution-worker internals or privileged credentials to the browser.
+
+---
+
+## 12. CURRENT IMPLEMENTATION STATE
+
+No specific repository implementation is established by this project context.
+
+Therefore, the current implementation state is **UNKNOWN until inspected**.
+
+Do not assume that the project is empty, complete, broken, or already using a particular framework.
+
+Before changing architecture:
+
+1. Inspect the repository.
+
+2. Identify existing functionality.
+
+3. Run relevant checks.
+
+4. Determine what can be preserved.
+
+5. Compare actual state with the target architecture.
+
+6. Identify migration needs and risks.
+
+Do not discard working code simply because it does not match the preferred architecture.
+
+---
+
+## 13. MANDATORY REPOSITORY AUDIT AND GAP ANALYSIS
+
+Perform a forensic audit before substantial implementation.
+
+### Repository inspection
+
+Inspect:
+
+* Directory tree.
+
+* README and project documentation.
+
+* Package manifests and lock files.
+
+* Python dependencies.
+
+* Environment templates.
+
+* Configuration files.
+
+* Source modules.
+
+* Database migrations.
+
+* Tests and fixtures.
+
+* Build and startup scripts.
+
+* Docker configuration.
+
+* CI/CD configuration.
+
+* Deployment manifests.
+
+* Logs and reproducible failures.
+
+Never print secrets while inspecting environment files.
+
+### Frontend inspection
+
+Determine:
+
+* Next.js and TypeScript versions.
+
+* App Router or Pages Router.
+
+* Existing page and component structure.
+
+* Design system.
+
+* Editor integration.
+
+* API clients.
+
+* Authentication integration.
+
+* Form validation.
+
+* Error handling.
+
+* Build and lint status.
+
+### Backend inspection
+
+Determine:
+
+* Python version.
+
+* Framework and entry point.
+
+* Dependency manager.
+
+* API routes.
+
+* Business services.
+
+* Schemas and models.
+
+* AI integrations.
+
+* Existing code-analysis tools.
+
+* Execution behavior.
+
+* Authentication and authorization.
+
+* Test coverage.
+
+* Runtime errors.
+
+### Database inspection
+
+Determine:
+
+* Supabase configuration.
+
+* PostgreSQL schema.
+
+* Migrations.
+
+* Relationships.
+
+* Constraints and indexes.
+
+* RLS policies.
+
+* Database grants.
+
+* Authentication integration.
+
+* Generated types.
+
+* Environment requirements.
+
+### Runtime inspection
+
+Where permitted:
+
+* Install dependencies using the repository's established package manager.
+
+* Run frontend and backend checks.
+
+* Run existing tests.
+
+* Run type checking and linting.
+
+* Build the frontend.
+
+* Test relevant API endpoints.
+
+* Validate database connectivity when credentials are available.
+
+* Inspect application logs.
+
+* Reproduce documented failures.
+
+Do not modify production data or run destructive migrations merely to discover the current state.
+
+### Required internal gap matrix
+
+Create a requirement-to-implementation matrix before major changes.
+
+Classify each item as:
+
+* Implemented and verified.
+
+* Implemented but unverified.
+
+* Partially implemented.
+
+* Broken.
+
+* Missing.
+
+* Blocked by configuration.
+
+* Requires a deliberate architectural decision.
+
+Record the files, dependencies, and validation evidence associated with each relevant finding.
+
+---
+
+## 14. EXECUTION DEPENDENCY GRAPH
+
+Follow a dependency-aware implementation sequence.
+
+**Phase A: Repository audit and baseline**
+
+→ **Phase B: Architecture and API contracts**
+
+→ **Phase C: Python analysis services**
+
+→ **Phase D: AI explanation, hint, and repair workflows**
+
+→ **Phase E: Isolated execution and verification**
+
+→ **Phase F: Supabase persistence and authorization where required**
+
+→ **Phase G: Next.js interface integration**
+
+→ **Phase H: Security hardening**
+
+→ **Phase I: End-to-end tests**
+
+→ **Phase J: Documentation and deployment validation**
+
+→ **Phase K: Independent final audit**
+
+Adjust the sequence when existing dependencies require another order.
+
+Do not postpone architectural decisions that block dependent implementation.
+
+Define integration contracts before independent agents implement connected modules.
+
+---
+
+## 15. IMPLEMENTATION PHASES
+
+### Phase 1 — Audit and baseline
+
+* Inspect the repository.
+
+* Determine what works.
+
+* Run baseline tests.
+
+* Record existing failures.
+
+* Identify current technologies.
+
+* Create the gap matrix.
+
+* Produce an implementation plan based on actual evidence.
+
+Do not stop after producing this plan.
+
+### Phase 2 — Foundation
+
+* Establish or preserve the Next.js/TypeScript frontend.
+
+* Establish or preserve the Python backend.
+
+* Configure environment management.
+
+* Define shared API contracts.
+
+* Establish test conventions.
+
+* Configure Supabase/PostgreSQL if required by existing functionality or the intended data model.
+
+### Phase 3 — Deterministic analysis
+
+* Implement Python syntax and parsing diagnostics.
+
+* Integrate an appropriate static analyzer.
+
+* Normalize findings.
+
+* Capture valid line and column information.
+
+* Distinguish errors, warnings, and style findings.
+
+* Test known faulty and valid programs.
+
+### Phase 4 — AI-assisted diagnosis
+
+* Implement the model provider adapter.
+
+* Provide relevant code and diagnostic evidence.
+
+* Generate structured explanations.
+
+* Validate output schemas.
+
+* Handle malformed responses, timeouts, rate limits, and provider failures.
+
+* Keep deterministic diagnostics available if AI fails.
+
+### Phase 5 — Beginner learning engine
+
+* Implement selectable beginner mode.
+
+* Add progressive hints.
+
+* Enforce hint-disclosure rules on the backend.
+
+* Explain relevant programming concepts.
+
+* Preserve the user's opportunity to solve the problem independently.
+
+* Test that earlier hints do not disclose the complete solution.
+
+### Phase 6 — Repair proposal
+
+* Generate a minimal, reviewable correction.
+
+* Explain each meaningful change.
+
+* Preserve the original code.
+
+* Display a code diff.
+
+* Handle failed or ambiguous repair attempts.
+
+* Avoid presenting unverified proposals as correct.
+
+### Phase 7 — Execution and verification
+
+* Implement or integrate an isolated execution worker.
+
+* Set execution timeouts and resource limits.
+
+* Restrict filesystem and network access.
+
+* Prevent access to application credentials and unrelated user data.
+
+* Capture bounded output.
+
+* Run permitted test cases.
+
+* Recheck syntax and static diagnostics.
+
+* Report verification status honestly.
+
+If safe execution infrastructure is unavailable, do not execute untrusted code directly on the API server. Implement the safe non-execution analysis path and document execution as blocked until the isolation requirement is satisfied.
+
+### Phase 8 — Frontend integration
+
+* Implement the code editor.
+
+* Integrate submission and analysis.
+
+* Display diagnostics and explanations.
+
+* Add progressive hints.
+
+* Implement the debugging timeline.
+
+* Display proposed fixes and diffs.
+
+* Display validation results.
+
+* Implement loading, empty, error, and success states.
+
+* Verify keyboard accessibility and responsive behavior.
+
+### Phase 9 — Persistence and account features
+
+Inspect the actual requirements before implementing user accounts or history.
+
+If persistence is required, implement the relevant schema and migrations.
+
+If authentication is required, establish a consistent identity and authorization model.
+
+Do not add unnecessary user-management or administration systems simply because the database supports them.
+
+### Phase 10 — Hardening and release preparation
+
+* Run the complete test suite.
+
+* Resolve critical failures.
+
+* Validate frontend and backend builds.
+
+* Verify security boundaries.
+
+* Validate database migrations.
+
+* Check error handling and configuration failures.
+
+* Update setup documentation.
+
+* Perform an independent final audit.
+
+---
+
+## 16. MULTI-AGENT ORCHESTRATION
+
+Use subagents only when the environment supports them and the tasks are genuinely independent.
+
+Potential assignments:
+
+### Architecture Agent
+
+Owns the architecture assessment, dependency graph, API contract proposal, and integration decisions.
+
+### Frontend Agent
+
+Owns agreed Next.js components, styling, frontend state, accessibility, and frontend tests.
+
+### Python Agent
+
+Owns API routes, domain services, diagnostic normalization, AI orchestration, and backend tests.
+
+### Database Agent
+
+Owns schema design, migrations, constraints, RLS, grants, and database tests.
+
+### Security Agent
+
+Independently reviews code execution isolation, credentials, authorization, input validation, and data exposure.
+
+### QA Agent
+
+Owns test planning, test fixtures, regression checks, and evidence collection.
+
+### Review Agent
+
+Inspects integrated changes for correctness, duplication, architectural drift, and incomplete requirements.
+
+### Coordination rules
+
+The primary agent owns the complete implementation and integration.
+
+Every agent must receive:
+
+* A precise objective.
+
+* Relevant repository context.
+
+* Files or modules it may modify.
+
+* Dependencies and interfaces.
+
+* Expected outputs.
+
+* Required tests.
+
+* Constraints on destructive changes.
+
+Do not let multiple agents modify the same critical files simultaneously without explicit coordination.
+
+Do not allow agents to invent competing API contracts or incompatible database models.
+
+If the environment does not support subagents, perform the same work sequentially.
+
+---
+
+## 17. NEXT.JS / TYPESCRIPT IMPLEMENTATION
+
+Use Next.js with TypeScript as the frontend framework.
+
+### Required implementation principles
+
+* Follow the existing design system when present.
+
+* Use reusable, appropriately sized components.
+
+* Prefer server and client component boundaries deliberately.
+
+* Use strict typing where practical.
+
+* Avoid `any` unless explicitly justified.
+
+* Validate API responses at appropriate boundaries.
+
+* Centralize the Python API client.
+
+* Keep secrets out of browser bundles.
+
+* Keep presentation logic separate from authoritative business rules.
+
+* Use accessible form labels and controls.
+
+* Support keyboard navigation.
+
+* Provide clear focus states.
+
+* Respect reduced-motion preferences.
+
+* Use responsive layouts.
+
+### Core interface
+
+Implement these functional areas:
+
+**A. Code workspace**
+
+* Code editor.
+
+* Language selection.
+
+* Code submission.
+
+* Optional expected output and test inputs.
+
+* Analysis progress.
+
+**B. Diagnostic panel**
+
+* Finding category and severity.
+
+* Source location.
+
+* Explanation.
+
+* Evidence.
+
+* Recommended next step.
+
+**C. Beginner assistance**
+
+* Progressive hint controls.
+
+* Clear indication of the current hint level.
+
+* Explicit full-solution request.
+
+* Step-by-step debugging guidance.
+
+**D. Repair workspace**
+
+* Original code.
+
+* Proposed correction.
+
+* Reviewable diff.
+
+* Change explanation.
+
+* Accept or copy correction controls, as appropriate.
+
+**E. Verification panel**
+
+* Checks actually executed.
+
+* Passed and failed checks.
+
+* Runtime output.
+
+* Remaining diagnostics.
+
+* Unverified conditions.
+
+### UI integrity
+
+Every visible control must perform its advertised action.
+
+Do not use static mock responses as if they came from the backend.
+
+Do not silently swallow errors.
+
+Use mock data only in explicitly identified development fixtures or tests.
+
+---
+
+## 18. PYTHON BACKEND IMPLEMENTATION
+
+Use the existing suitable Python backend if one is already established. For a new API-oriented backend, prefer FastAPI unless a justified alternative is necessary.
+
+### Suggested logical modules
+
+Adapt to the repository rather than blindly creating every module.
+
+* API routing.
+
+* Request and response schemas.
+
+* Analysis orchestration.
+
+* Python syntax diagnostics.
+
+* Static analyzer integration.
+
+* AI provider abstraction.
+
+* Error explanation.
+
+* Hint progression.
+
+* Repair proposal generation.
+
+* Verification orchestration.
+
+* Execution-worker integration.
+
+* Persistence.
+
+* Authentication and authorization.
+
+* Configuration and logging.
+
+### Backend requirements
+
+* Typed schemas.
+
+* Input-size limits.
+
+* Consistent error responses.
+
+* Appropriate HTTP status codes.
+
+* Explicit timeouts.
+
+* Bounded retries.
+
+* Safe error logging.
+
+* Provider failure handling.
+
+* Rate limiting where justified.
+
+* Authentication and authorization where required.
+
+* No hardcoded secrets.
+
+* No arbitrary command execution through API parameters.
+
+* No unbounded AI or execution loops.
+
+### AI integration
+
+* Read provider credentials from protected environment variables.
+
+* Use a provider abstraction.
+
+* Validate structured outputs.
+
+* Treat generated code and model instructions as untrusted.
+
+* Prevent submitted source code from overriding system-level policies.
+
+* Do not assume that schema-valid output is semantically correct.
+
+* Avoid sending unnecessary private code to external services.
+
+* Explain provider failures clearly.
+
+### Error handling
+
+Return useful client errors for invalid input and controlled server errors for unexpected failures.
+
+Do not return stack traces, environment variables, internal filesystem paths, or secrets to users.
+
+Log enough information to diagnose failures without unnecessarily recording submitted source code.
+
+---
+
+## 19. SUPABASE / POSTGRESQL IMPLEMENTATION
+
+Supabase PostgreSQL is the mandatory primary relational database.
+
+### Initial approach
+
+First determine whether persistence is required for the current release and what the repository already implements.
+
+If analysis can remain transient and the product does not require history, do not create unnecessary tables.
+
+If persistence is required, design the minimum schema that supports implemented workflows.
+
+Potential records include:
+
+* Analysis sessions.
+
+* Diagnostic findings.
+
+* Repair proposals.
+
+* Verification runs.
+
+* User feedback.
+
+* User-owned history, if authentication is implemented.
+
+These are candidates, not predetermined table names.
+
+### Database requirements
+
+* Versioned SQL migrations.
+
+* Primary keys.
+
+* Appropriate foreign keys.
+
+* Data types and nullability.
+
+* Uniqueness constraints where required.
+
+* Indexes based on actual query patterns.
+
+* Consistent timestamps.
+
+* Appropriate transaction boundaries.
+
+* Referential integrity.
+
+* Tested migrations.
+
+* Documented rollback or recovery considerations.
+
+### Access control
+
+* Review database grants and RLS policies together.
+
+* Do not assume authentication automatically authorizes data access.
+
+* Prevent users from reading or modifying another user's records.
+
+* Never trust frontend-provided user IDs as proof of identity.
+
+* Do not expose service-role or other privileged credentials in browser code.
+
+* Use protected server-side credentials only where necessary.
+
+* Ensure the Python backend's database access pattern does not accidentally bypass required authorization.
+
+### Migrations
+
+Do not apply destructive production migrations without explicit authorization.
+
+Test schema changes in an appropriate development environment.
+
+Do not claim that a migration succeeded without actually executing or validating it.
+
+---
+
+## 20. API CONTRACT
+
+Define and document the API before connecting the frontend to backend functionality.
+
+Suggested initial operations, subject to repository verification:
+
+* `POST /api/v1/analysis` — Submit code and request analysis.
+
+* `GET /api/v1/analysis/{analysis_id}` — Retrieve an analysis when persistence and ownership checks are implemented.
+
+* `POST /api/v1/analysis/{analysis_id}/hints` — Request the next permitted hint.
+
+* `POST /api/v1/analysis/{analysis_id}/repair` — Generate a repair proposal.
+
+* `POST /api/v1/analysis/{analysis_id}/verify` — Verify a proposed correction against permitted checks.
+
+* `GET /health` — Report basic service health.
+
+These are proposed contracts, not existing endpoints. Adapt them to actual architecture and workflow needs.
+
+### Contract requirements
+
+For each implemented operation, specify:
+
+* HTTP method and path.
+
+* Request schema.
+
+* Response schema.
+
+* Authentication requirements.
+
+* Authorization rules.
+
+* Validation failures.
+
+* Error codes.
+
+* Timeout behavior.
+
+* Rate limits where applicable.
+
+Use Pydantic schemas and FastAPI OpenAPI generation where appropriate.
+
+Generate or maintain TypeScript API types from an authoritative schema when practical.
+
+Do not let frontend and backend independently define incompatible field names or data types.
+
+Avoid placing source code, API keys, or sensitive diagnostic data in URLs.
+
+---
+
+## 21. AUTHENTICATION / AUTHORIZATION
+
+First inspect whether accounts and authentication are part of the existing project.
+
+If authentication is not needed for the initial prototype, do not invent an unnecessary account system.
+
+If authentication is required:
+
+* Prefer a coherent integration with Supabase Auth where appropriate.
+
+* Validate authentication on the Python backend.
+
+* Establish how trusted identity is propagated from Next.js to Python.
+
+* Validate tokens and their expected issuer, audience, expiry, and signature using an appropriate supported method.
+
+* Never trust a user ID or role supplied only by the frontend.
+
+* Enforce record ownership on the server.
+
+* Enforce database authorization where appropriate.
+
+* Avoid logging access tokens.
+
+* Test unauthorized and cross-user access.
+
+The frontend's authenticated state is not an authorization boundary.
+
+---
+
+## 22. SECURITY
+
+Security is mandatory, particularly because the product processes and may execute untrusted source code.
+
+### Code execution isolation
+
+Never run arbitrary user programs in the main API process or a privileged application container.
+
+Use a separate, appropriately isolated execution environment.
+
+Apply:
+
+* Execution timeouts.
+
+* CPU and memory limits.
+
+* Process limits.
+
+* Bounded output.
+
+* Restricted filesystem access.
+
+* No application secrets in the execution environment.
+
+* Network isolation or explicit deny-by-default network rules.
+
+* Temporary workspace cleanup.
+
+* Non-privileged execution identities.
+
+* Worker lifecycle and cancellation controls.
+
+* Limits on concurrent execution.
+
+A normal Python subprocess or a virtual environment alone is not an adequate sandbox.
+
+Do not claim strong isolation unless the implementation and configuration support it.
+
+### Input and dependency security
+
+* Validate source size and request schemas.
+
+* Reject unsupported language values.
+
+* Do not interpolate user-controlled strings into shell commands.
+
+* Avoid installing arbitrary user dependencies automatically.
+
+* Treat uploaded files and package configuration as untrusted.
+
+* Protect against path traversal and archive extraction abuse if uploads are implemented.
+
+* Bound test case counts and sizes.
+
+### Web and API security
+
+Review:
+
+* Authentication.
+
+* Authorization.
+
+* IDOR.
+
+* CSRF where applicable.
+
+* XSS.
+
+* SQL injection.
+
+* SSRF.
+
+* Command injection.
+
+* CORS.
+
+* Session handling.
+
+* Rate limiting.
+
+* Secrets exposure.
+
+* Sensitive logs.
+
+* Dependency vulnerabilities.
+
+* Privilege escalation.
+
+* Database grants and RLS.
+
+### AI-specific security
+
+* Treat user code and model outputs as untrusted.
+
+* Do not let code comments or source strings override application policies.
+
+* Never allow model output to authorize privileged operations.
+
+* Validate any generated patch before execution.
+
+* Limit tool access to the minimum required.
+
+* Do not expose secrets to the model unnecessarily.
+
+* Prevent untrusted code from reaching AI provider credentials.
+
+* Require explicit application-level policy for operations with side effects.
+
+### Secrets
+
+Use environment variables or an appropriate secret manager.
+
+Maintain a safe `.env.example` where appropriate.
+
+Never commit actual credentials.
+
+Do not disable security controls to make a demonstration easier.
+
+---
+
+## 23. PERFORMANCE
+
+Optimize based on measured behavior.
+
+Evaluate:
+
+* Frontend bundle and rendering.
+
+* API latency.
+
+* AI response time.
+
+* Repeated model calls.
+
+* Static-analysis runtime.
+
+* Database query patterns.
+
+* Execution queue delays.
+
+* Output size.
+
+* Concurrent jobs.
+
+* Resource consumption.
+
+Use:
+
+* Input limits.
+
+* Request timeouts.
+
+* Bounded retries.
+
+* Appropriate concurrency limits.
+
+* Pagination for history.
+
+* Caching only where safe and useful.
+
+* Reuse of deterministic analysis results where justified.
+
+Never share private code-analysis cache results across users without a safe, deliberate isolation strategy.
+
+Do not invent performance benchmarks.
+
+Record actual measurements if the environment supports reliable measurement.
+
+---
+
+## 24. TESTING
+
+Create and execute tests at multiple levels.
+
+### Frontend tests
+
+* Editor input and submission.
+
+* Loading and failure states.
+
+* Diagnostic rendering.
+
+* Progressive hint interaction.
+
+* Correction comparison.
+
+* Verification report.
+
+* Keyboard navigation.
+
+* API failure handling.
+
+* Responsive behavior where practical.
+
+### Backend tests
+
+* Request validation.
+
+* Syntax diagnostics.
+
+* Static-analysis normalization.
+
+* Error explanation schemas.
+
+* Hint-disclosure enforcement.
+
+* Repair proposal validation.
+
+* Provider timeout and failure handling.
+
+* Authorization.
+
+* Rate limiting where implemented.
+
+* Verification-result accuracy.
+
+* Logging without secret leakage.
+
+### Code-analysis dataset
+
+Create a reproducible Python test corpus containing examples such as:
+
+* Missing colon or malformed syntax.
+
+* Undefined variable.
+
+* Incorrect indentation.
+
+* Type mismatch.
+
+* Division by zero.
+
+* Index out of range.
+
+* Incorrect linked-list pointer logic.
+
+* Incorrect loop boundaries.
+
+* Off-by-one errors.
+
+* Incorrect arithmetic.
+
+* Programs that execute but produce the wrong output.
+
+* Correct programs that should not be falsely flagged.
+
+Keep expected results separate from the system's predictions.
+
+Include both faulty and valid code.
+
+Do not use only trivial examples that make the system appear more capable than it is.
+
+### Repair tests
+
+For each repair test, retain:
+
+* Original code.
+
+* Expected behavior.
+
+* Test inputs.
+
+* Expected outputs.
+
+* Proposed patch.
+
+* Tests actually executed.
+
+* Pass/fail results.
+
+* Remaining defects, where identified.
+
+Measure repair pass rate on the defined test set. Do not describe it as universal correctness.
+
+### Execution security tests
+
+Where safe infrastructure is available, test:
+
+* Infinite loops.
+
+* Excessive output.
+
+* Memory-intensive programs.
+
+* Attempts to access protected files.
+
+* Attempts to reach unavailable network services.
+
+* Child-process creation.
+
+* Timeout enforcement.
+
+* Workspace cleanup.
+
+* Concurrent execution limits.
+
+Do not run destructive security tests against production infrastructure.
+
+### Database tests
+
+If persistence is implemented:
+
+* Validate migrations.
+
+* Test constraints.
+
+* Test ownership rules.
+
+* Test RLS and grants where applicable.
+
+* Test unauthorized access.
+
+* Test transaction behavior where relevant.
+
+### End-to-end tests
+
+Validate:
+
+**Browser → Next.js → Python API → analysis tools/AI → execution worker → Supabase where required → response → UI**
+
+At least one complete critical workflow must be demonstrated using real application components.
+
+Do not substitute mock responses for proof of backend integration.
+
+---
+
+## 25. OBSERVABILITY
+
+Implement proportionate observability.
+
+Where appropriate, include:
+
+* Structured logs.
+
+* Request IDs.
+
+* Execution job IDs.
+
+* Service health endpoints.
+
+* Error categories.
+
+* Timing measurements.
+
+* AI provider failure counts.
+
+* Execution timeout records.
+
+* Safe operational metrics.
+
+Do not log full submitted programs by default.
+
+Avoid logging API keys, access tokens, or sensitive user data.
+
+Do not create an elaborate monitoring platform unless actual deployment needs justify it.
+
+---
+
+## 26. DEPLOYMENT
+
+Inspect existing deployment configuration before selecting a target architecture.
+
+A possible deployment consists of:
+
+* Next.js frontend.
+
+* Python API.
+
+* Isolated execution worker.
+
+* Supabase PostgreSQL.
+
+* External AI provider.
+
+These may require separate deployment services because arbitrary code execution must not share an unsafe privilege boundary with the application API.
+
+Document:
+
+* Required environment variables.
+
+* Dependency installation.
+
+* Frontend build and startup.
+
+* Python startup.
+
+* Worker startup.
+
+* Database migrations.
+
+* AI provider configuration.
+
+* Health checks.
+
+* Execution resource limits.
+
+* Production security requirements.
+
+* Rollback and recovery steps.
+
+Do not assume that a standard serverless deployment supports arbitrary code execution safely.
+
+If execution isolation or credentials are unavailable, clearly distinguish the runnable development workflow from the production deployment requirements.
+
+Do not deploy to production or incur significant costs without appropriate authorization.
+
+---
+
+## 27. DOCUMENTATION
+
+Maintain documentation that reflects the actual implementation.
+
+Update or create, as appropriate:
+
+* README.
+
+* Architecture overview.
+
+* Requirements and scope.
+
+* Setup instructions.
+
+* Environment variable reference.
+
+* Frontend development commands.
+
+* Python backend commands.
+
+* API documentation.
+
+* Database schema documentation.
+
+* Migration instructions.
+
+* Test instructions.
+
+* Execution security model.
+
+* AI provider setup.
+
+* Troubleshooting guide.
+
+* Deployment instructions.
+
+* Known limitations.
+
+Document which features are implemented, partially implemented, or not yet supported.
+
+Do not describe planned functionality as operational.
+
+---
+
+## 28. VALIDATION GATES
+
+Apply a validation gate after every major phase.
+
+### Gate A — Repository baseline
+
+* Existing application inspected.
+
+* Baseline failures recorded.
+
+* Current architecture understood.
+
+### Gate B — Backend analysis
+
+* Python tests pass for the implemented functionality.
+
+* Diagnostic locations are accurate for covered examples.
+
+* Invalid input is handled safely.
+
+* AI failure does not break deterministic analysis.
+
+### Gate C — Learning workflow
+
+* Hint progression works.
+
+* Beginner mode does not prematurely disclose the full solution.
+
+* Explanations correspond to the relevant diagnostics.
+
+* The debugging workflow handles unresolved errors.
+
+### Gate D — Repair and verification
+
+* Corrections are reviewable.
+
+* Original code is preserved.
+
+* Tests actually execute where configured.
+
+* Verification reports match actual results.
+
+* Unverified conditions remain explicitly unverified.
+
+### Gate E — Frontend integration
+
+* Real API integration works.
+
+* Loading and failure states render correctly.
+
+* No dead controls remain in implemented workflows.
+
+* Type checking and frontend tests pass.
+
+### Gate F — Database and security
+
+* Migrations are validated.
+
+* Authorization is enforced where required.
+
+* Privileged credentials are protected.
+
+* Execution isolation is tested or clearly documented as blocked.
+
+### Gate G — Final release
+
+* Critical tests pass.
+
+* Frontend production build succeeds.
+
+* Backend validation succeeds.
+
+* End-to-end workflow is tested.
+
+* Documentation matches reality.
+
+* Remaining risks are documented.
+
+When a gate fails:
+
+**STOP → REPRODUCE → DIAGNOSE → FIX → RE-VALIDATE**
+
+Do not knowingly proceed past a critical security or data-integrity failure.
+
+---
+
+## 29. FAILURE RECOVERY
+
+When implementation or validation fails:
+
+1. Capture the exact error.
+
+2. Reproduce the failure.
+
+3. Determine the root cause.
+
+4. Inspect dependencies and affected interfaces.
+
+5. Make the smallest coherent correction.
+
+6. Rerun the failing check.
+
+7. Run related regression tests.
+
+8. Inspect the resulting changes.
+
+9. Continue with dependent tasks only when safe.
+
+Never:
+
+* Hide failures.
+
+* Suppress important exceptions to create the appearance of success.
+
+* Disable tests to pass validation.
+
+* Weaken authorization.
+
+* Remove security controls as a workaround.
+
+* Replace real functionality with fake output.
+
+* Claim a build or test succeeded without running it.
+
+* Silently overwrite user work.
+
+* Continue destructive database changes after a failed migration.
+
+If a required external service is unavailable, complete independent work and report the precise blocked integration.
+
+---
+
+## 30. STOP / ASK CONDITIONS
+
+Continue autonomously when a decision is low-risk and reversible.
+
+Stop and request clarification only when:
+
+* Critical requirements genuinely conflict.
+
+* A destructive or irreversible action is required.
+
+* Production credentials or explicit authorization are necessary.
+
+* A major architectural choice cannot safely be inferred.
+
+* Compliance requirements materially affect the implementation.
+
+* Safe execution infrastructure cannot be established without a consequential deployment decision.
+
+* Continuing could expose sensitive data or cause substantial irreversible damage.
+
+Do not ask unnecessary questions about ordinary implementation details.
+
+When blocked, continue all safe, independent work.
+
+---
+
+## 31. FINAL FORENSIC AUDIT
+
+Before declaring completion, independently verify the integrated system.
+
+### Product
+
+* All P0 requirements.
+
+* Applicable P1 requirements.
+
+* Core beginner workflow.
+
+* Error-report accuracy for tested examples.
+
+* Progressive hints.
+
+* Repair proposal workflow.
+
+* Verification reporting.
+
+* Honest limitation handling.
+
+### Frontend
+
+* Routing.
+
+* Code editor.
+
+* API integration.
+
+* Responsive behavior.
+
+* Accessibility.
+
+* Type safety.
+
+* Loading, error, and success states.
+
+* Working controls.
+
+### Backend
+
+* API contracts.
+
+* Validation.
+
+* Business logic.
+
+* AI provider handling.
+
+* Hint enforcement.
+
+* Structured errors.
+
+* Authorization.
+
+* Logging.
+
+### Database
+
+* Schema.
+
+* Migrations.
+
+* Constraints.
+
+* Indexes.
+
+* RLS and grants where applicable.
+
+* Ownership isolation.
+
+* Data integrity.
+
+### AI and analysis
+
+* Deterministic findings distinguished from AI hypotheses.
+
+* No fabricated diagnostics.
+
+* Correct code preserved.
+
+* Proposed patches reviewable.
+
+* Test results accurately reported.
+
+* Provider failures handled.
+
+### Execution security
+
+* Untrusted code runs only in an appropriate isolated environment.
+
+* Resource limits are effective.
+
+* Credentials are inaccessible to submitted programs.
+
+* Output is bounded.
+
+* Cleanup works.
+
+* Any unverified isolation guarantees are disclosed.
+
+### Integration
+
+Verify the actual critical workflow across all required components.
+
+### Deployment and documentation
+
+* Environment configuration.
+
+* Startup commands.
+
+* Migration instructions.
+
+* Production build.
+
+* Operational constraints.
+
+* Known limitations.
+
+Do not declare the project complete while critical failures remain unresolved.
+
+---
+
+## 32. DEFINITION OF DONE
+
+A requirement is complete only when it is:
+
+**IMPLEMENTED → INTEGRATED → TESTED → VERIFIED**
+
+For this project, completion requires the following evidence.
+
+### Functional completion
+
+A user can submit Python code and obtain actual diagnostics.
+
+The user can inspect explanations and use progressive hints.
+
+The user can request a correction and review the proposed changes.
+
+The system can report which validation checks were actually executed.
+
+The user can distinguish a verified result from a suggestion or unresolved issue.
+
+### Technical completion
+
+* Frontend and backend contracts agree.
+
+* Critical backend tests pass.
+
+* Type checking and production build pass, subject to documented environment constraints.
+
+* Critical end-to-end tests execute successfully.
+
+* Required database migrations are validated.
+
+* Security boundaries are implemented and tested to the extent claimed.
+
+* No known critical defect is hidden.
+
+### Integrity completion
+
+* No fake functionality is presented as real.
+
+* No credentials are exposed.
+
+* No unsupported universal correctness claims are made.
+
+* No unverified results are described as verified.
+
+* All incomplete requirements and blockers are documented.
+
+If any of these requirements cannot be satisfied, report the project as partially complete and identify the exact blocker.
+
+---
+
+## 33. REQUIREMENT EVIDENCE MATRIX
+
+Maintain a requirement matrix throughout implementation.
+
+Use this structure:
+
+| Requirement           | Implementation           | Validation               | Evidence     | Result        |
+| --------------------- | ------------------------ | ------------------------ | ------------ | ------------- |
+| Code submission       | Actual component and API | Submission test          | Test output  | PASS/FAIL     |
+| Syntax detection      | Python analysis service  | Labeled syntax cases     | Test results | PASS/FAIL     |
+| Static analysis       | Analyzer integration     | Known defect corpus      | Test results | PASS/FAIL     |
+| Error explanation     | AI explanation service   | Schema and quality tests | Test results | PASS/FAIL     |
+| Progressive hints     | Hint policy service      | Disclosure tests         | Test results | PASS/FAIL     |
+| Corrected code        | Repair service           | Repair test corpus       | Test results | PASS/FAIL     |
+| Multi-level detection | Analysis orchestration   | Cross-level dataset      | Test results | PASS/FAIL     |
+| Guided debugging      | Workflow and UI          | Integration test         | Test results | PASS/FAIL     |
+| Verification report   | Validation service       | Result consistency tests | Test results | PASS/FAIL     |
+| Execution isolation   | Worker infrastructure    | Security tests           | Test results | PASS/FAIL     |
+| Database security     | Migrations and policies  | Authorization tests      | Test results | PASS/FAIL/N/A |
+| Frontend integration  | Next.js API client       | End-to-end tests         | Test results | PASS/FAIL     |
+| Production build      | Build configuration      | Actual build             | Build output | PASS/FAIL     |
+
+Replace illustrative entries with actual file paths, commands, results, and evidence.
+
+Do not mark a requirement as PASS because code exists.
+
+Use BLOCKED, NOT IMPLEMENTED, NOT VERIFIED, or NOT APPLICABLE where appropriate.
+
+Every P0 and applicable P1 requirement must have a validation result.
+
+---
+
+## 34. FINAL REPORT
+
+After completing implementation and the final audit, produce a concise but evidence-based report.
+
+### COMPLETED
+
+List the features actually implemented and integrated.
+
+### CHANGED
+
+List important files, modules, migrations, and architectural changes.
+
+### VERIFIED
+
+Report the exact checks executed and their results, including:
+
+* Frontend tests.
+
+* Type checking.
+
+* Linting.
+
+* Python tests.
+
+* Database validation.
+
+* Security tests.
+
+* End-to-end tests.
+
+* Production build.
+
+Distinguish checks that passed from checks that were not run.
+
+### ARCHITECTURE
+
+Summarize the actual frontend, backend, database, AI provider, and execution-worker design.
+
+Explain any deliberate deviations from the baseline.
+
+### SECURITY
+
+Report verified security controls and any limitations.
+
+Do not claim that the system is secure merely because a review was performed.
+
+### PERFORMANCE
+
+Report actual measurements only when they were collected. Otherwise identify performance work that remains unmeasured.
+
+### REMAINING
+
+List genuinely incomplete requirements, blocked tasks, known defects, and unsupported features.
+
+### RISKS
+
+Identify relevant AI reliability, code-execution, privacy, cost, and deployment risks.
+
+### COMMANDS
+
+Provide the actual commands to install dependencies, configure the environment, start the application, run tests, and build the frontend.
+
+### EVIDENCE
+
+Include the final requirement evidence matrix and relevant test or build outputs.
+
+Never claim completion beyond the available evidence.
+
+---
+
+# EXECUTION DIRECTIVE
+
+Begin by inspecting the actual repository and determining its current state.
+
+Do not generate a replacement application before understanding what already exists.
+
+Do not stop after the audit or implementation plan.
+
+Implement the highest-priority requirements in dependency order, integrate the components, run the tests, diagnose failures, correct defects, and repeat validation until the core workflow works or a genuine blocker is reached.
+
+Preserve working functionality, avoid unnecessary architecture changes, and make the smallest coherent changes that achieve the requirements.
+
+Use independent agents only where they materially improve delivery and can work without conflicting edits.
+
+Treat all submitted source code as untrusted.
+
+Do not execute untrusted code outside a properly isolated environment.
+
+Do not expose secrets, invent capabilities, fabricate test results, or claim universal code correctness.
+
+If a dependency or external service is unavailable, continue safe independent work and report the limitation precisely.
+
+Your objective is not to create the largest possible codebase. It is to deliver the smallest complete, secure, understandable, and testable system that fulfills the project's requirements.
+
+**Final operating loop:**
+
+RECONSTRUCT → AUDIT → VALIDATE → PLAN → IMPLEMENT → INTEGRATE → TEST → DEBUG → HARDEN → DOCUMENT → VERIFY → REPORT
+
+**Start repository inspection now. Then execute the project implementation.**
