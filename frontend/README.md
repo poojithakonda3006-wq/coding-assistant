@@ -1,5 +1,12 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Public UI preview
+
+Review the static interface at
+[https://poojithakonda3006-wq.github.io/coding-assistant/](https://poojithakonda3006-wq.github.io/coding-assistant/).
+Analysis and code execution are disabled in the public preview; use the local
+setup below to run the full application.
+
 ## Getting Started
 
 First, run the development server:
