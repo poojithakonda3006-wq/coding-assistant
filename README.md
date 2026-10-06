@@ -12,7 +12,9 @@ This address works only on the computer where the frontend is running. It is
 not a public website link; anyone reviewing the project on another device must
 run the app locally or use a deployed URL.
 
-The FastAPI backend runs at `http://127.0.0.1:8000`. See
+On Windows, run `.\start-local.ps1` from PowerShell to start the frontend and
+backend in the background and configure them to start automatically the next
+time you sign in. The FastAPI backend runs at `http://127.0.0.1:8000`. See
 [frontend/README.md](frontend/README.md) for WSL sandbox setup and runtime
 details.
 
