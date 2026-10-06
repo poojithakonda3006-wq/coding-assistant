@@ -6,13 +6,11 @@ Java, C, and C++.
 
 ## Public project preview
 
-The public interface preview will be available at
+The public interface preview is available at
 **[https://poojithakonda3006-wq.github.io/coding-assistant/](https://poojithakonda3006-wq.github.io/coding-assistant/)**.
-GitHub Actions deploys it from `main` after GitHub Pages is enabled for this
-repository. If the first deployment asks for Pages configuration, open the
-repository's **Settings → Pages** and set the build source to **GitHub Actions**.
-The public static preview lets visitors explore the interface, but does not
-connect to a backend or execute code.
+GitHub Actions publishes updates from `main`. The public static preview lets
+visitors explore the interface, but does not connect to a backend or execute
+code.
 
 ## Review locally
 
